@@ -50,13 +50,15 @@ h1 {
 }
 
 .split.left .btn:hover{
-    color:var(--left-btn-color);
+    background-color:var(--left-btn-color);
     border:var(--left-btn-color) solid 0.2rem;
+    border-radius: 5px;
 }
 
 .split.right .btn:hover{
-    color:var(--right-btn-color);
+    background-color:var(--right-btn-color);
     border:var(--right-btn-color) solid 0.2rem;
+    border-radius: 5px;
 }
 
 .container{
@@ -124,8 +126,8 @@ h1 {
 
 @media(max-width:800px){
     h1{
-        font-size: 2.5rem;
-        top:32%;
+        font-size: 2rem;
+        top:27%;
     }
     .btn{
         width: 5rem;
