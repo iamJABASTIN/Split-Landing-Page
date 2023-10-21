@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root{
+    --left-bg-color  : rgba(87, 84, 236, 0.7);
+    --right-bg-color : rgba(220,20,60,0.7);
+    --left-btn-color : crimson;
+    --right-btn-color: royalblue;
+    --split-width: 75%;
+    --other-width: 25%;
+    --speed:1000ms;
+}
+
+
+* {
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    overflow:hidden;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    font-size:4rem;
+    color:white;
+    position:absolute;
+    left:50%;
+    top:20%;
+    transform:translateX(-50%);
+    text-wrap: nowrap;
+}
+
+.btn {
+    position: absolute;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    top:40%;
+    left:50%;
+    transform: translateX(-50%);
+    color:white;
+    border:white solid 0.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    width:9rem;
+    padding:1rem;
+    text-decoration: none;
+}
+
+.split.left .btn:hover{
+    color:var(--left-btn-color);
+    border:var(--left-btn-color) solid 0.2rem;
+}
+
+.split.right .btn:hover{
+    color:var(--right-btn-color);
+    border:var(--right-btn-color) solid 0.2rem;
+}
+
+.container{
+    position: relative;
+    width:100%;
+    height:100%;
+    background:#333;
+}
+
+.split {
+    position:absolute;
+    width:50%;
+    height:100%;
+    overflow: hidden;
+}
+
+.split.left::before{
+    content:'';
+    background-color: var(--left-bg-color);
+    width:100%;
+    height:100%;
+    position: absolute;
+}
+
+.split.left{
+    left:0%;
+    background:url('./images/2.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.split.right::before{
+    content:'';
+    position: absolute;
+    width:100%;
+    height:100%;
+    background-color: var(--right-bg-color);
+}
+.split.right{
+    right:0%;
+    background:url('./images/1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.split.right, .split.left, .split.left::before, .split.right::before {
+    transition: all var(--speed) ease-in-out;
+}
+
+.container.hover-left .left {
+    width:var(--split-width);
+}
+
+.container.hover-left .right{
+    width:var(--other-width);
+}
+
+.container.hover-right .left {
+    width:var(--other-width);
+}
+
+.container.hover-right .right{
+    width:var(--split-width);
+}
+
+@media(max-width:800px){
+    h1{
+        font-size: 2.5rem;
+        top:32%;
+    }
+    .btn{
+        width: 5rem;
+        padding: 0.6rem;
+    }
+    .split.left{
+        background: url(./images/The\ Batman.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .split.right{
+        background: url(./images/The\ Iron\ Man.jpg);
+        background-position:center;
+        background-size: cover;
+    }
+}
